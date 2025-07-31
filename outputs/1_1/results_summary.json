@@ -1,0 +1,107 @@
+{
+  "image_path": "..\\dataset\\1_1.tif",
+  "image_name": "1_1",
+  "original_shape": [
+    10208,
+    14804
+  ],
+  "processed_shape": [
+    1412,
+    2047
+  ],
+  "n_features": 10,
+  "feature_names": [
+    "band_0",
+    "band_1",
+    "band_2",
+    "red_local_mean",
+    "green_local_mean",
+    "blue_local_mean",
+    "gradient_magnitude",
+    "ndvi_proxy",
+    "water_index",
+    "urban_index"
+  ],
+  "evaluation_metrics": {
+    "spatial_coherence": 0.9876328703462866,
+    "class_distribution": {
+      "1": 87558,
+      "4": 2477311,
+      "5": 325495
+    },
+    "feature_importance": {
+      "band_0": 0.14877043941426696,
+      "band_1": 0.0677545676879271,
+      "band_2": 0.049694704422797095,
+      "red_local_mean": 0.2460712683793297,
+      "green_local_mean": 0.1240635136351674,
+      "blue_local_mean": 0.08077448285571497,
+      "gradient_magnitude": 0.032957127950506926,
+      "ndvi_proxy": 0.019261345066463147,
+      "water_index": 0.020272854139029305,
+      "urban_index": 0.21037969644879745
+    },
+    "validation_accuracy": 0.986,
+    "classification_report": {
+      "1": {
+        "precision": 0.8878048780487805,
+        "recall": 0.8863636363636364,
+        "f1-score": 0.8870836718115354,
+        "support": 616.0
+      },
+      "4": {
+        "precision": 0.992543054980174,
+        "recall": 0.9959617554486608,
+        "f1-score": 0.9942494664453403,
+        "support": 16839.0
+      },
+      "5": {
+        "precision": 0.9658360128617364,
+        "recall": 0.944204322200393,
+        "f1-score": 0.954897675342738,
+        "support": 2545.0
+      },
+      "accuracy": 0.986,
+      "macro avg": {
+        "precision": 0.9487279819635637,
+        "recall": 0.9421765713375634,
+        "f1-score": 0.9454102711998712,
+        "support": 20000.0
+      },
+      "weighted avg": {
+        "precision": 0.985918648021116,
+        "recall": 0.986,
+        "f1-score": 0.9859412445528128,
+        "support": 20000.0
+      }
+    },
+    "deep_learning_accuracy": 0.9220246076583862
+  },
+  "land_cover_classes": {
+    "0": "Water",
+    "1": "Urban/Built-up",
+    "2": "Forest/Vegetation",
+    "3": "Agriculture/Cropland",
+    "4": "Bare Soil/Rock",
+    "5": "Other"
+  },
+  "processing_timestamp": "2025-07-31T12:31:53.282261",
+  "total_pixels": 2890364,
+  "class_statistics": {
+    "1": {
+      "count": 87558,
+      "percentage": 3.0293070353768594,
+      "class_name": "Urban/Built-up"
+    },
+    "4": {
+      "count": 2477311,
+      "percentage": 85.70930858535465,
+      "class_name": "Bare Soil/Rock"
+    },
+    "5": {
+      "count": 325495,
+      "percentage": 11.261384379268494,
+      "class_name": "Other"
+    }
+  }
+}
