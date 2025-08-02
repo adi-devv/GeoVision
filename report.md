@@ -1,4 +1,4 @@
-# Land Cover Segmentation Using Deep Learning: Technical Report
+# GeoVision: Technical Report
 
 **Project:** Satellite Image Land Cover Classification  
 **Repository:** [https://github.com/adi-devv/GeoVision](https://github.com/adi-devv/GeoVision)  
@@ -223,3 +223,4 @@ GeoVision/
 ├── requirements.txt
 └── README.md
 ```
+
