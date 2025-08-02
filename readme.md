@@ -33,20 +33,23 @@ pip install -r requirements.txt
 
 Create the following directory structure:
 ```
-project/
-├── config.py
-├── data_utils.py  
-├── model_utils.py
-├── main.py
+GeoVision/
+├── src/
+│   ├── config.py
+│   ├── data_utils.py  
+│   ├── model_utils.py
+│   └── main.py
 ├── data/
 │   ├── train/
-│   │   ├── images/    # Training satellite images (.tif)
+│   │   ├── images/    # Training satellite images (.jpg)
 │   │   └── masks/     # Training masks (.png)
 │   └── valid/
-│       ├── images/    # Validation satellite images (.tif)  
+│       ├── images/    # Validation satellite images (.jpg)  
 │       └── masks/     # Validation masks (.png)
 ├── target/            # Images to segment (.tif/.tiff)
-└── outputs/           # Generated segmentation results
+├── outputs/           # Generated segmentation results
+├── requirements.txt
+└── README.md
 ```
 
 ## 📊 Dataset Requirements
@@ -236,5 +239,6 @@ For issues and questions:
 **Python Version:** 3.8+  
 
 **PyTorch Version:** 1.9.0+
+
 
 
