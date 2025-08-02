@@ -57,7 +57,7 @@ Download from: [DeepGlobe 2018 Challenge](http://deepglobe.org/)
 **Training Data:**
 - Place satellite images in `data/train/images/`
 - Place corresponding masks in `data/train/masks/`
-- Image naming: `*_sat.tif` 
+- Image naming: `*_sat.jpg` 
 - Mask naming: `*_mask.png`
 
 **Expected Data Format:**
@@ -162,7 +162,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```
 
 **Data Loading Errors:**
-- Ensure image-mask naming convention: `image_sat.tif` ↔ `image_mask.png`
+- Ensure image-mask naming convention: `image_sat.png` ↔ `image_mask.png`
 - Check file permissions and formats
 - Verify directory structure matches expected layout
 
@@ -236,4 +236,5 @@ For issues and questions:
 **Python Version:** 3.8+  
 
 **PyTorch Version:** 1.9.0+
+
 
