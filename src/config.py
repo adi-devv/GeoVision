@@ -24,7 +24,7 @@ class Config:
     # Training parameters
     LEARNING_RATE = 1e-4
     BATCH_SIZE = 4
-    EPOCHS = 1
+    EPOCHS = 30
 
     # DeepGlobe class mappings
     CLASS_MAP = {
@@ -56,3 +56,4 @@ class Config:
         3: [255, 255, 100],  # Land = Light Yellow
         4: [128, 128, 128]  # Other/Ignore = Gray
     }
+
