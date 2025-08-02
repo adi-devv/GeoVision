@@ -13,7 +13,7 @@ A deep learning pipeline for satellite image land cover classification using U-N
 
 1. **Clone the repository:**
 ```bash
-git clone [<repository-url>](https://github.com/adi-devv/GeoVision)
+git clone https://github.com/adi-devv/GeoVision
 cd land-cover-segmentation
 ```
 
@@ -236,3 +236,4 @@ For issues and questions:
 **Python Version:** 3.8+  
 
 **PyTorch Version:** 1.9.0+
+
