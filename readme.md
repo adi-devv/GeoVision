@@ -1,4 +1,4 @@
-# Land Cover Segmentation Pipeline
+# GeoVision
 
 A deep learning pipeline for satellite image land cover classification using U-Net with ResNet34 encoder, trained on the DeepGlobe dataset.
 **Repository:** [https://github.com/adi-devv/GeoVision](https://github.com/adi-devv/GeoVision)  
@@ -240,6 +240,7 @@ For issues and questions:
 **Python Version:** 3.8+  
 
 **PyTorch Version:** 1.9.0+
+
 
 
 
