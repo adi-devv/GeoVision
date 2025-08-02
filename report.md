@@ -1,6 +1,7 @@
 # Land Cover Segmentation Using Deep Learning: Technical Report
 
 **Project:** Satellite Image Land Cover Classification  
+**Repository:** [https://github.com/adi-devv/GeoVision](https://github.com/adi-devv/GeoVision)  
 **Model:** U-Net with ResNet34 Encoder  
 **Dataset:** DeepGlobe Land Cover Challenge  
 **Date:** August 2025
@@ -204,10 +205,21 @@ The approach effectively handles real-world challenges including memory constrai
 
 **Project Repository Structure:**
 ```
-├── config.py              # Configuration management
-├── data_utils.py          # Data processing utilities
-├── model_utils.py         # Training and prediction
-├── main.py               # Main execution pipeline
-├── README.md             # Setup and usage instructions
-└── outputs/              # Generated segmentation results
+GeoVision/
+├── src/
+│   ├── config.py
+│   ├── data_utils.py  
+│   ├── model_utils.py
+│   └── main.py
+├── data/
+│   ├── train/
+│   │   ├── images/    # Training satellite images (.jpg)
+│   │   └── masks/     # Training masks (.png)
+│   └── valid/
+│       ├── images/    # Validation satellite images (.jpg)  
+│       └── masks/     # Validation masks (.png)
+├── target/            # Images to segment (.tif/.tiff)
+├── outputs/           # Generated segmentation results
+├── requirements.txt
+└── README.md
 ```
