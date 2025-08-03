@@ -5,7 +5,6 @@
 **Dataset:** DeepGlobe (100-120 images)  
 **Best Config:** 256px patches, batch=6, epochs=30  
 
----
 
 ## 1. Methodology
 
@@ -27,7 +26,6 @@
 - Normalization & resizing
 - Gaussian filtering (σ=1)
 
----
 
 ## 2. Results & Findings
 
@@ -52,8 +50,6 @@
 - GPU memory constraints
 - Small dataset size
 
----
-
 ## 3. Conclusion
 
 ### Best Configuration
@@ -69,6 +65,14 @@
 **Repository:** [github.com/adi-devv/GeoVision](https://github.com/adi-devv/GeoVision)
 
 ### References
-1. DeepGlobe Challenge @ CVPR 2018
+1. @InProceedings{DeepGlobe18,
+ author = {Demir, Ilke and Koperski, Krzysztof and Lindenbaum, David and Pang, Guan and Huang, Jing and Basu, Saikat and Hughes, Forest and Tuia, Devis and Raskar, Ramesh},
+ title = {DeepGlobe 2018: A Challenge to Parse the Earth Through Satellite Images},
+ booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+ month = {June},
+ year = {2018}
+}
+
 2. U-Net (Ronneberger 2015)
 3. ResNet (He 2016)
+
