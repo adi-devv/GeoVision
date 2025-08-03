@@ -50,8 +50,7 @@ def process_target_images(model):
         print(f'Target directory {config.TARGET_DIR} not found')
         return
 
-    target_images = [f for f in os.listdir(config.TARGET_DIR)
-                     if f.lower().endswith(('.tif', '.tiff'))]
+    target_images = [f for f in os.listdir(config.TARGET_DIR) if f.lower().endswith(('.tif', '.tiff'))]
 
     if not target_images:
         print(f'No TIFF images found in {config.TARGET_DIR}')

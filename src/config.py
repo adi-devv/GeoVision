@@ -56,4 +56,3 @@ class Config:
         3: [255, 255, 100],  # Land = Light Yellow
         4: [128, 128, 128]  # Other/Ignore = Gray
     }
-
