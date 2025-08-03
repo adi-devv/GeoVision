@@ -11,7 +11,6 @@ from model_utils import ModelTrainer, SegmentationPredictor
 
 config = Config()
 
-
 def setup_data_loaders():
     """Set up training and validation data loaders"""
     train_loader = val_loader = None
@@ -112,3 +111,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
