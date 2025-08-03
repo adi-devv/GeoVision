@@ -102,14 +102,14 @@
 
 ## 6. References
 1. **DeepGlobe Dataset:**
-'''
+```bibtex
 @InProceedings{DeepGlobe18,
   author = {Demir, Ilke and others},
   title = {DeepGlobe 2018: A Challenge to Parse the Earth Through Satellite Images},
   booktitle = {CVPR Workshops},
   year = {2018}
 }
-'''
+```
 3. U-Net: Ronneberger et al. (2015). Convolutional Networks for Biomedical Image Segmentation.
 4. ResNet: He et al. (2016). Deep Residual Learning for Image Recognition.
 
