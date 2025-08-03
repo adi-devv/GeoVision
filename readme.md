@@ -100,7 +100,7 @@ class Config:
     
     # Training parameters  
     EPOCHS = 30
-    BATCH_SIZE = 4
+    BATCH_SIZE = 6
     LEARNING_RATE = 1e-4
     PATCH_SIZE = 256
 ```
@@ -240,6 +240,7 @@ For issues and questions:
 **Python Version:** 3.8+  
 
 **PyTorch Version:** 1.9.0+
+
 
 
 
