@@ -2,76 +2,117 @@
 
 **Project:** Satellite Image Classification  
 **Model:** U-Net with ResNet34 Encoder  
-**Dataset:** DeepGlobe (100-120 images)  
-**Best Config:** 256px patches, batch=6, epochs=30  
+**Dataset:** DeepGlobe (50 and 100–120 images tested)  
+**Best Configuration:** 256×256 patches, batch size 6, 30 epochs  
+**Repository:** [github.com/adi-devv/GeoVision](https://github.com/adi-devv/GeoVision)  
+**Date:** August 2025
 
+---
 
-## 1. Methodology
+## 1. Approach
 
-### Architecture
-- U-Net with ResNet34 encoder (ImageNet pretrained)
-- Input: 256×256 RGB patches
-- Output: 4 classes (Urban/Forest/Water/Land)
+### 1.1 Architecture
+- **Model:** U-Net with ResNet34 encoder (pretrained on ImageNet)
+- **Input:** 256×256 RGB patches
+- **Output:** 4 classes (Urban, Forest, Water, Land) + 1 ignore class
+- **Loss:** CrossEntropyLoss with class weights (ignore_index=4)
+- **Optimizer:** Adam (lr=1e-4)
 
-### Training
-- **Optimal Parameters:**
-  - Batch size: 6 (tested 4/6/8)
-  - Epochs: 30 (tested 20-50)
-  - Patch size: 256px (tested 128/256/512)
-- Loss: CrossEntropy (class weights)
-- Optimizer: Adam (lr=1e-4)
+### 1.2 Training
+- **Dataset:** DeepGlobe Land Cover Challenge (tested with 50 and 100–120 images)
+- **Parameters Tested:**
+  - Batch sizes: 4, 6, 8
+  - Epochs: 20, 30, 40, 50
+  - Patch sizes: 128, 256, 512
+- **Best Configuration:** 256×256 patches, batch size 6, 30 epochs
+- **Device:** NVIDIA GTX1650 (4GB VRAM)
 
-### Preprocessing
-- Class consolidation: 6→4 categories
-- Normalization & resizing
-- Gaussian filtering (σ=1)
+### 1.3 Preprocessing
+- **Class Consolidation:** Mapped 6 DeepGlobe classes to 4 target classes:
+  | Original Classes | Target Classes |
+  |------------------|----------------|
+  | Urban (Cyan)     | Urban         |
+  | Agriculture, Rangeland, Barren | Land |
+  | Forest (Green)   | Forest        |
+  | Water (Blue)     | Water         |
+  | Unknown (Black)  | Ignored       |
+- **Steps:**
+  - Normalization (uint8/uint16/float)
+  - Resizing to 256×256 patches
+  - Gaussian filtering (σ=1) for noise reduction
+  - RGB channel standardization
 
+---
 
-## 2. Results & Findings
+## 2. Challenges
 
-### Performance
-- Best validation accuracy: 85% (256px/6batch/30epoch)
-- Training time: ~1hr (NVIDIA GTX1650 4GB GPU)
+1. **Water-Forest Color Overlap**: Similar RGB values for water and forest led to misclassification. Mitigated with class-weighted loss and color augmentation.
+2. **Class Imbalance**: Dominant land class skewed predictions. Used weighted CrossEntropyLoss.
+3. **GPU Memory Constraints**: Large images (>1000×1000 pixels) caused memory issues. Applied patch-based processing with overlap.
+4. **Small Dataset Size**: 50 images caused overfitting; switching to 100–120 images improved generalization. Used early stopping and regularization.
 
-### Key Observations
-1. 256px patches balanced detail and context
-2. Batch=6 optimized GPU memory usage
-3. 30 epochs sufficient for convergence
-4. Larger patches (512px) showed diminishing returns
+---
 
-### Challenges
-- Class imbalance
-- Water-Forest color overlap
-- GPU memory constraints
-- Small dataset size
+## 3. Results
 
-## 3. Conclusion
+### 3.1 Performance
+- **Best Configuration:** 256×256 patches, batch size 6, 30 epochs (100–120 images)
+- **Metrics:**
+  - Validation accuracy: ~85% (100–120 images)
+  - Lower accuracy (~78%) with 50 images due to overfitting
+  - Stable loss convergence, no overfitting with larger dataset
+  - Mean IoU improved with class weighting
+- **Training Time:** ~1 hour on NVIDIA GTX1650 (4GB)
 
-### Best Configuration
-- **Patch Size:** 256×256  
-- **Batch Size:** 6  
-- **Epochs:** 30  
+### 3.2 Key Observations
+- 256×256 patches balanced detail and context.
+- Batch size 6 optimized GPU memory.
+- 30 epochs sufficient; 50 epochs showed minimal gains.
+- 512×512 patches increased computation without accuracy boost.
+- Larger dataset (100–120 images) reduced water-forest confusion vs. 50 images.
 
-### Recommendations
-1. Data augmentation for rare classes
-2. Multi-scale training
-3. Larger dataset collection
+### 3.3 Visualization
+- Color-coded maps (Urban: Red, Forest: Green, Water: Blue, Land: Yellow)
+- Side-by-side original vs. predicted images
+- High-resolution outputs (300 DPI)
 
-**Repository:** [github.com/adi-devv/GeoVision](https://github.com/adi-devv/GeoVision)
+---
 
-### References
-1. DeepGlobe Challenge @ CVPR 2018
-```
+## 4. Assumptions
+
+- **Image Properties:**
+  - RGB input; single-band images replicated to RGB
+  - Images ≥256×256 pixels optimal
+  - Orthorectified with consistent resolution
+- **Data Consistency:** Uniform geographic projection
+- **Computational Resources:**
+  - Minimum 4GB VRAM for training
+  - 8GB+ RAM for large images
+- **Spectral Input:** RGB only; first three bands used if multispectral
+
+---
+
+## 5. Recommendations
+- **Enhance Data Augmentation**: Use rotation and color jittering to address water-forest overlap.
+- **Multi-Scale Training**: Combine patch sizes (128, 256, 512) for better context.
+- **Expand Dataset**: Collect ~500+ images for improved generalization.
+- **Incorporate Spectral Indices**: Use NDVI/NDWI if multispectral data available.
+
+---
+
+## 6. References
+1. **DeepGlobe Dataset:**
+'''
 @InProceedings{DeepGlobe18,
- author = {Demir, Ilke and Koperski, Krzysztof and Lindenbaum, David and Pang, Guan and Huang, Jing and Basu, Saikat and Hughes, Forest and Tuia, Devis and Raskar, Ramesh},
- title = {DeepGlobe 2018: A Challenge to Parse the Earth Through Satellite Images},
- booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
- month = {June},
- year = {2018}
-}
-```
-2. U-Net (Ronneberger 2015)
-3. ResNet (He 2016)
+  author = {Demir, Ilke and others},
+  title = {DeepGlobe 2018: A Challenge to Parse the Earth Through Satellite Images},
+  booktitle = {CVPR Workshops},
+  year = {2018}
+}'''
+2. U-Net: Ronneberger et al. (2015). Convolutional Networks for Biomedical Image Segmentation.
+3. ResNet: He et al. (2016). Deep Residual Learning for Image Recognition.
 
 
-
+## 7. Conclusion
+The U-Net with ResNet34 encoder achieved ~85% validation accuracy with 256×256 patches, batch size 6, and 30 epochs on 100–120 images. Switching from 50 to 100–120 images reduced overfitting and improved performance. Challenges like water-forest color overlap were mitigated with weighted loss. The pipeline is scalable for environmental monitoring.
+Repository Structure:
