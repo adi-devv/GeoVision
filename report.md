@@ -7,7 +7,6 @@
 **Repository:** [github.com/adi-devv/GeoVision](https://github.com/adi-devv/GeoVision)  
 **Date:** August 2025
 
----
 
 ## 1. Approach
 
@@ -42,7 +41,6 @@
   - Gaussian filtering (σ=1) for noise reduction
   - RGB channel standardization
 
----
 
 ## 2. Challenges
 
@@ -51,7 +49,6 @@
 3. **GPU Memory Constraints**: Large images (>1000×1000 pixels) caused memory issues. Applied patch-based processing with overlap.
 4. **Small Dataset Size**: 50 images caused overfitting; switching to 100–120 images improved generalization. Used early stopping and regularization.
 
----
 
 ## 3. Results
 
@@ -76,7 +73,6 @@
 - Side-by-side original vs. predicted images
 - High-resolution outputs (300 DPI)
 
----
 
 ## 4. Assumptions
 
@@ -90,7 +86,6 @@
   - 8GB+ RAM for large images
 - **Spectral Input:** RGB only; first three bands used if multispectral
 
----
 
 ## 5. Recommendations
 - **Enhance Data Augmentation**: Use rotation and color jittering to address water-forest overlap.
@@ -98,7 +93,6 @@
 - **Expand Dataset**: Collect ~500+ images for improved generalization.
 - **Incorporate Spectral Indices**: Use NDVI/NDWI if multispectral data available.
 
----
 
 ## 6. References
 1. **DeepGlobe Dataset:**
@@ -117,4 +111,5 @@
 ## 7. Conclusion
 The U-Net with ResNet34 encoder achieved ~85% validation accuracy with 256×256 patches, batch size 6, and 30 epochs on 100–120 images. Switching from 50 to 100–120 images reduced overfitting and improved performance. Challenges like water-forest color overlap were mitigated with weighted loss. The pipeline is scalable for environmental monitoring.
 Repository Structure:
+
 
