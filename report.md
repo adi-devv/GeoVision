@@ -108,11 +108,13 @@
   title = {DeepGlobe 2018: A Challenge to Parse the Earth Through Satellite Images},
   booktitle = {CVPR Workshops},
   year = {2018}
-}'''
-2. U-Net: Ronneberger et al. (2015). Convolutional Networks for Biomedical Image Segmentation.
-3. ResNet: He et al. (2016). Deep Residual Learning for Image Recognition.
+}
+'''
+3. U-Net: Ronneberger et al. (2015). Convolutional Networks for Biomedical Image Segmentation.
+4. ResNet: He et al. (2016). Deep Residual Learning for Image Recognition.
 
 
 ## 7. Conclusion
 The U-Net with ResNet34 encoder achieved ~85% validation accuracy with 256×256 patches, batch size 6, and 30 epochs on 100–120 images. Switching from 50 to 100–120 images reduced overfitting and improved performance. Challenges like water-forest color overlap were mitigated with weighted loss. The pipeline is scalable for environmental monitoring.
 Repository Structure:
+
