@@ -30,14 +30,8 @@
 ## 2. Results & Findings
 
 ### Performance
-- Best validation accuracy: 89.2% (256px/6batch/30epoch)
-- Training time: ~2.5hrs (NVIDIA T4 GPU)
-
-| Config        | Val Acc | Training Time |
-|---------------|---------|---------------|
-| 128px/b4/e30  | 86.1%   | 1.8h          |
-| 256px/b6/e30  | 89.2%   | 2.5h          | 
-| 512px/b4/e40  | 87.5%   | 4.1h          |
+- Best validation accuracy: 85% (256px/6batch/30epoch)
+- Training time: ~1hr (NVIDIA GTX1650 4GB GPU)
 
 ### Key Observations
 1. 256px patches balanced detail and context
@@ -46,7 +40,8 @@
 4. Larger patches (512px) showed diminishing returns
 
 ### Challenges
-- Class imbalance (Land=43.7%, Water=12.4%)
+- Class imbalance
+- Water-Forest color overlap
 - GPU memory constraints
 - Small dataset size
 
@@ -77,5 +72,6 @@
 ```
 2. U-Net (Ronneberger 2015)
 3. ResNet (He 2016)
+
 
 
