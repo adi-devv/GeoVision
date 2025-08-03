@@ -14,7 +14,7 @@
 Land cover classification from satellite imagery is crucial for environmental monitoring, urban planning, and climate research. This project implements an automated semantic segmentation pipeline to classify satellite images into four primary land cover types: urban areas, forests, water bodies, and general land.
 
 ### 1.2 Technical Approach
-We employed a U-Net architecture with a pre-trained ResNet34 encoder for pixel-wise land cover classification. The approach consists of:
+U-Net architecture with a pre-trained ResNet34 encoder for pixel-wise land cover classification. The approach consists of:
 
 - **Architecture:** U-Net with ResNet34 backbone pre-trained on ImageNet
 - **Class Mapping:** Simplified 6-class DeepGlobe labels into 4 target classes
@@ -223,4 +223,5 @@ GeoVision/
 ├── requirements.txt
 └── README.md
 ```
+
 
