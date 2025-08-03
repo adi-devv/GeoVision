@@ -23,7 +23,7 @@ class Config:
 
     # Training parameters
     LEARNING_RATE = 1e-4
-    BATCH_SIZE = 4
+    BATCH_SIZE = 6  # 6 with 30 epochs is smoother n more accurate
     EPOCHS = 30
 
     # DeepGlobe class mappings
