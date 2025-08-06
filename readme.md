@@ -220,26 +220,12 @@ Unknown (Black) → Ignored
 4. Push to branch (`git push origin feature/enhancement`)
 5. Create Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-For issues and questions:
-1. Check existing issues in the repository
-2. Review troubleshooting section above
-3. Create new issue with:
-   - System specifications
-   - Error messages
-   - Sample data (if possible)
-
----
 
 **Last Updated:** August 2025  
 **Python Version:** 3.8+  
 
 **PyTorch Version:** 1.9.0+
+
 
 
 
